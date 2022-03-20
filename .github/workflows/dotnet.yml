@@ -1,0 +1,71 @@
+name: .NET
+
+on:
+  push:
+    
+jobs:
+  build_EpiCalc:
+
+    name: Build EpiCalc
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.x
+
+    - name: Install dependencies
+      run: dotnet restore ${{ github.workspace }}/EpiCalc/EpiCalc.csproj
+
+    - name: Build
+      run: dotnet build ${{ github.workspace }}/EpiCalc/EpiCalc.csproj --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish ${{ github.workspace }}/EpiCalc/EpiCalc.csproj
+        
+  build_EpiCalcAddition:
+
+    name: Build EpiCalcAddition
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+
+    - name: Install dependencies
+      run: dotnet restore ${{ github.workspace }}/EpiCalcAddition/EpiCalcAddition.csproj
+
+    - name: Build
+      run: dotnet build ${{ github.workspace }}/EpiCalcAddition/EpiCalcAddition.csproj --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish ${{ github.workspace }}/EpiCalcAddition/EpiCalcAddition.csproj
+
+  build_EpiCalcSubtraction:
+
+    name: Build EpiCalcSubtraction
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+
+    - name: Install dependencies
+      run: dotnet restore ${{ github.workspace }}/EpiCalcSubtraction/EpiCalcSubtraction.csproj
+
+    - name: Build
+      run: dotnet build ${{ github.workspace }}/EpiCalcSubtraction/EpiCalcSubtraction.csproj --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish ${{ github.workspace }}/EpiCalcSubtraction/EpiCalcSubtraction.csproj    

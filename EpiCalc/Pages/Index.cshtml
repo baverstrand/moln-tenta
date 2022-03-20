@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "EpiCalc";
+}
+
+<div class="text-center">
+    <h1 class="display-4">EpiCalc</h1>
+    <p>Welcome to my epic calculator for lazy dummies. Enter two integers and choose which arithmetic operation you prefer, and press the button!</p>
+    <div id="form">
+        <form method="post">
+            <input type="number" asp-for="First" placeholder="First number" /><br/>
+            <input type="number" asp-for="Second" placeholder="Second number" /><br/>
+            <input type="radio" asp-for="ArithmeticOperation" id="Addition" value="Addition" />  Addition ( + )
+            <input type="radio" asp-for="ArithmeticOperation" id="Subtraction" value="Subtraction" />  Subtraction ( - )<br/>
+            <button type="submit">Go!</button>
+        </form>
+    </div>
+</div>

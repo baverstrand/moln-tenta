@@ -1,0 +1,21 @@
+﻿@page
+@model EpiCalc.Pages.ResultsModel
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    @* TODO resultatet goes här *@
+    <h3>@Model.Header</h3>
+    <h4>@Model.Result</h4>
+    <br/>
+    <br/>
+    @* TODO listan med historiken goes här *@
+    <h3>10 previous calculations</h3>
+    @foreach (var item in Model.LastTen)
+    {
+        @item
+        <br/>
+    }
